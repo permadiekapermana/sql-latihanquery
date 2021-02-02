@@ -67,6 +67,18 @@ public class DatabaseAkses {
 		
 	}
 	
+	public static void view3() throws SQLException {
+		st = con.createStatement();
+		rs = st.executeQuery("(SELECT CITY, length(CITY) AS LENGTH_WORD FROM `station` ORDER BY LENGTH_WORD ASC, CITY ASC LIMIT 1) "
+				+ "UNION (SELECT CITY, length(CITY) AS LENGTH_WORD FROM `station` ORDER BY LENGTH_WORD DESC, CITY ASC LIMIT 1)");
+		
+		while(rs.next()) {
+			System.out.println("\nCity : " + rs.getString(1));
+			System.out.println("Length Word : " + rs.getString(2));
+		}
+		
+	}
+	
 	public static void view4() throws SQLException {
 		st = con.createStatement();
 		rs = st.executeQuery("SELECT DISTINCT city FROM station WHERE city LIKE 'a%' OR city LIKE 'i%' OR city LIKE 'u%' OR city LIKE 'e%' OR city LIKE 'o%'");

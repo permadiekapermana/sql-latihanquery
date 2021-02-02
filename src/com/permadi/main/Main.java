@@ -55,6 +55,14 @@ public class Main {
 			}
 			break;
 			
+		case 3:
+			try {
+				db.view3();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
 		case 4:
 			try {
 				db.view4();
